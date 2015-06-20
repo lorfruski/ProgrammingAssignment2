@@ -8,7 +8,7 @@
 ## and get and set the value of the matrix inverse.  The list of
 ## functions returned is "get", "set", "getinv", and "setinv".
 ## The matrix and its inverse are assigned in the environment of 
-## these four functions.  As long as the 
+## these four functions.
 
 makeCacheMatrix <- function(x = matrix()) {
   inv <- NULL
@@ -18,7 +18,7 @@ makeCacheMatrix <- function(x = matrix()) {
     ## not the variable name has changed).  If they are the same, do nothing.
     if(identical(x,y)) return()
     ## Cache the new value of the matrix in the environment of the 
-    ## set, get, setinv, and getinv
+    ## set, get, setinv, and getinv functions.
     x <<- y
     ## Set the cached value of the inverse to NULL because it hasn't been
     ## computed yet
@@ -26,7 +26,8 @@ makeCacheMatrix <- function(x = matrix()) {
   }
   ## Retrieve the cached value of the matrix 
   get <- function() x
-  ## Cache the new value of the matrix inverse in the environemtn of 
+  ## Cache the new value of the matrix inverse in the environment of
+  ## the set, get, setinv, and getinv functions.
   setinv <- function(inverted) inv <<- inverted
   getinv <- function() inv
   list(set = set, get = get,
